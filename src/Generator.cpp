@@ -71,11 +71,32 @@ void MakeBinary(const std::string& filename) {
     fout.close();
 }
 
+void MakeJson(const std::string& filename) {
+    nlohmann::json j;
+    j["points"] = nlohmann::json::array();
+
+    for (size_t i = 1; i != 4; ++i) {
+        nlohmann::json point;
+        point["group"] = std::to_string(i);
+        point["x"] = i;
+        point["y"] = i;
+        j["points"].push_back(point);
+    }
+
+    std::ofstream fout(filename);
+    if (!fout) {
+        throw std::runtime_error("Failed to generate .json file"s);
+    }
+    fout << j.dump(4);
+    fout.close();
+}
+
 int main() {
     std::cout << "Begin Generate data for Project"s << std::endl;
     try {
-        MakeTxt("../data/filetxt.txt"s);
-        MakeBinary("../data/filebin.bin"s);
+        MakeTxt("../data/file1.txt"s);
+        MakeBinary("../data/file2.bin"s);
+        MakeJson("../data/file3.json"s);
     } catch (const std::exception& e) {
         std::cerr << "Error: "s << e.what() << std::endl;
         return 1;
