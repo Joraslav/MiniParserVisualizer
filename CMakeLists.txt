@@ -59,6 +59,23 @@ add_executable(data_generator src/Generator.cpp)
 add_executable(${PROJECT_NAME} main.cpp)
 target_link_libraries(${PROJECT_NAME} PRIVATE Parser)
 
+# Install targets
+install(TARGETS ${PROJECT_NAME} DESTINATION bin)
+
+# Scripts
+install(PROGRAMS
+    scripts/plot.py
+    scripts/run_pipeline.sh
+    DESTINATION bin
+)
+
+# Docs
+install(FILES
+    README.md
+    build_my_project.sh
+    DESTINATION .
+)
+
 include(CTest)
 enable_testing()
 
