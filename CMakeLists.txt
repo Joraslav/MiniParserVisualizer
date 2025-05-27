@@ -57,6 +57,7 @@ add_executable(data_generator src/Generator.cpp)
 
 # Main executable
 add_executable(${PROJECT_NAME} main.cpp)
+target_link_libraries(${PROJECT_NAME} PRIVATE Parser)
 
 include(CTest)
 enable_testing()
