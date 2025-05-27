@@ -43,7 +43,6 @@ FetchContent_Declare(
     URL https://github.com/nlohmann/json/releases/download/v3.12.0/json.tar.xz
 )
 FetchContent_MakeAvailable(nlohmann_json)
-
 include_directories(${nlohmann_json_SOURCE_DIR}/include)
 message(STATUS "nlohmann_json downloaded and included ^_^.")
 
@@ -52,6 +51,9 @@ add_library(Parser STATIC
     src/Parser.cpp
 )
 target_link_libraries(Parser PRIVATE nlohmann_json::nlohmann_json)
+
+# Executable for data
+add_executable(data_generator src/Generator.cpp)
 
 # Main executable
 add_executable(${PROJECT_NAME} main.cpp)
