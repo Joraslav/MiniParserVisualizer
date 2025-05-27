@@ -1,5 +1,7 @@
-set -e  # завершить при ошибке
-set -o pipefail  # завершить при ошибке в пайпе
+#!/bin/bash
+
+set -e
+set -o pipefail
 
 # Проверка наличия аргументов
 if [ "$#" -lt 1 ]; then
@@ -9,10 +11,12 @@ fi
 
 # Определим путь к исполняемому файлу C++ и скрипту Python
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-PROJECT_ROOT="$(realpath "$SCRIPT_DIR/..")"
-BIN_DIR="$PROJECT_ROOT/bin"
-PARSER_EXEC="$BIN_DIR/parser"
-PYTHON_SCRIPT="$PROJECT_ROOT/scripts/plot.py"
+INSTALL_ROOT="$(realpath "$SCRIPT_DIR/..")"
+BIN_DIR="$INSTALL_ROOT/bin"
+
+# ВНИМАНИЕ: имя исполняемого файла C++ совпадает с PROJECT_NAME
+PARSER_EXEC="$BIN_DIR/MiniParserVisualizer"
+PYTHON_SCRIPT="$BIN_DIR/plot.py"
 
 # Проверим, что исполняемый файл и скрипт существуют
 if [ ! -x "$PARSER_EXEC" ]; then
