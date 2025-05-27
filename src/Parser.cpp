@@ -53,17 +53,17 @@ ParsedData ParseBin(const std::string &filename) {
     }
 
     while (true) {
-        uint8_t group;
-        uint32_t x, y;
-        if (fin.eof()) {
+        uint32_t packed = 0;
+        fin.read(reinterpret_cast<char *>(&packed), sizeof(packed));
+        if (fin.gcount() != sizeof(packed)) {
             break;
         }
-        fin.read(reinterpret_cast<char *>(&group), sizeof(group));
-        fin.read(reinterpret_cast<char *>(&x), sizeof(x));
-        fin.read(reinterpret_cast<char *>(&y), sizeof(y));
 
-        parse_data[filename].emplace_back(static_cast<size_t>(group), static_cast<size_t>(x),
-                                          static_cast<size_t>(y));
+        uint32_t group = (packed >> 24) & 0xFF;
+        uint32_t x = (packed >> 12) & 0xFFF;
+        uint32_t y = packed & 0xFFF;
+
+        parse_data[filename].emplace_back(group, x, y);
     }
 
     fin.close();

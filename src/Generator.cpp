@@ -36,9 +36,9 @@ Point GeneratePointTxt(size_t group, size_t index) {
 
 BinaryPointData GeneratePointBinary(size_t group, size_t index) {
     BinaryPointData point;
-    point.group = static_cast<uint32_t>(group);
-    point.x = static_cast<uint32_t>(index);
-    point.y = static_cast<uint32_t>(index * 2);
+    point.group = static_cast<uint32_t>(group) & 0xFF; 
+    point.x = static_cast<uint32_t>(index) & 0xFFF;    
+    point.y = static_cast<uint32_t>(index * 2) & 0xFFF;
     return point;
 }
 
