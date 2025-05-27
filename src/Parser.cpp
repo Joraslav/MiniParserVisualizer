@@ -25,8 +25,9 @@ ParsedData ParseTxt(const std::string &filename) {
             throw std::runtime_error("Invalid group format in file: " + filename);
         }
 
-        std::string group_str = line.substr(
-            1, pos);  // Поскольку строка выглядит как "t1:1,2". Необходимо отделить символ t
+        std::string group_str = line.substr(0, pos);
+        if (group_str[0] == 't') group_str = group_str.substr(1);
+
         size_t group = std::stoull(group_str);
         std::string coords = line.substr(pos + 1);
 
