@@ -13,7 +13,7 @@ def main():
         for file in data["files"]:
             filename = file["filename"]
             for point in file["points"]:
-                group = point["group"]
+                group = int(point["group"])
                 x = point["x"]
                 y = point["y"]
                 label = f"{filename}:{group}"

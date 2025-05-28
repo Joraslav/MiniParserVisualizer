@@ -87,7 +87,7 @@ ParsedData ParseJSON(const std::string &filename) {
         if (!point.contains("group") || !point.contains("x") || !point.contains("y")) {
             throw std::runtime_error("Invalid point format in file: " + filename);
         }
-        uint32_t group = point["group"].get<uint32_t>();
+        uint32_t group = std::stoul(point["group"].get<std::string>());
         uint32_t x = point["x"].get<uint32_t>();
         uint32_t y = point["y"].get<uint32_t>();
         parse_data[filename].emplace_back(group, x, y);
