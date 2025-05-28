@@ -56,7 +56,7 @@ target_link_libraries(Parser PRIVATE nlohmann_json::nlohmann_json)
 add_executable(data_generator src/Generator.cpp)
 
 # Main executable
-add_executable(${PROJECT_NAME} main.cpp)
+add_executable(${PROJECT_NAME} src/main.cpp)
 target_link_libraries(${PROJECT_NAME} PRIVATE Parser)
 
 # Install targets
