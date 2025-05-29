@@ -76,6 +76,11 @@ install(FILES
     DESTINATION .
 )
 
+# Tests
 include(CTest)
 enable_testing()
+
+add_executable(testParser tests/ParserTests.cpp)
+target_link_libraries(testParser PRIVATE Parser GTest::GTest GTest::Main)
+add_test(NAME ParserTests COMMAND testParser)
 
