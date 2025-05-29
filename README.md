@@ -63,19 +63,26 @@ MiniParserVisualizer/
 
 ## Сборка и установка
 
-1. Выполните скрипт сборки:
+1. Склонируйте к себе репозиторий и перейдите в него:
 
-    ```sh
+    ```bash
+    git clone https://github.com/Joraslav/MiniParserVisualizer.git
+    cd MiniParserVisualizer
+    ```
+
+2. Выполните скрипт сборки:
+
+    ```bash
     ./build_my_project.sh
     ```
 
-    После успешной сборки и установки исполняемые файлы и скрипты будут находиться в директории `$HOME/miniparser_install/bin`.
+> **Примечание:** При необходимости, перед выполнением пункта 2, выполните следующую команду: chmod +x ./build_my_project.sh.
 
-## Генерация тестовых данных
+После успешной сборки и установки исполняемые файлы и скрипты будут находиться в директории:
 
 Для генерации тестовых файлов выполните:
 
-```sh
+```bash
 ./build/data_generator
 ```
 
@@ -91,6 +98,13 @@ MiniParserVisualizer/
 
 ```sh
 $HOME/miniparser_install/bin/run_pipeline.sh data/file1.txt data/file2.bin data/file3.json
+```
+
+> **Примечание:** При необходимости, перед выполнением команды выше, можно выполнить следующие команды:
+
+```bash
+chmod +x 
+chmod +x
 ```
 
 В результате будет построен график и сохранён в `output.png`.
@@ -126,15 +140,13 @@ $HOME/miniparser_install/bin/run_pipeline.sh data/file1.txt data/file2.bin data/
 
 В результате работы пайплайна будет создан файл `output.png` с визуализацией точек по группам и файлам.
 
+![output.png](output.png)
+
 ## Тестирование
 
 Для запуска тестов используйте стандартные средства CTest:
 
-```sh
+```bash
 cd build
 ctest
 ```
-
-## Автор
-
-Выполнено в рамках тестового задания для компании YADRO
