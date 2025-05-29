@@ -17,7 +17,6 @@ def plot_from_data(data, output_path="output.png"):
             label = f"{filename}:{group}"
             ax.scatter(x, y, label=label)
 
-    # Убрать дубли в легенде
     handles, labels = ax.get_legend_handles_labels()
     by_label = dict(zip(labels, handles))
     ax.legend(by_label.values(), by_label.keys(), fontsize='small')
