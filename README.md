@@ -100,13 +100,6 @@ MiniParserVisualizer/
 $HOME/miniparser_install/bin/run_pipeline.sh data/file1.txt data/file2.bin data/file3.json
 ```
 
-> **Примечание:** При необходимости, перед выполнением команды выше, можно выполнить следующие команды:
-
-```bash
-chmod +x 
-chmod +x
-```
-
 В результате будет построен график и сохранён в `output.png`.
 
 ## Описание форматов
