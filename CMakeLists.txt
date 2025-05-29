@@ -22,7 +22,7 @@ if(NOT GTest_FOUND)
     include(FetchContent)
     FetchContent_Declare(
         googletest
-        URL https://github.com/google/googletest/archive/refs/tags/v1.12.1.tar.gz
+        URL https://github.com/google/googletest/archive/refs/tags/v1.14.0.tar.gz
     )
     FetchContent_MakeAvailable(googletest)
     find_package(GTest REQUIRED)

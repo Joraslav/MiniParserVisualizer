@@ -38,7 +38,7 @@ MiniParserVisualizer/
 │   ├── Generator.cpp
 │   └── Utils.cpp
 └── tests/
-   └── ParserTests.cpp
+    └── ParserTests.cpp
 ```
 
 ## Программные требования
@@ -53,7 +53,7 @@ MiniParserVisualizer/
 ### Зависимости C++
 
 - [nlohmann/json](https://github.com/nlohmann/json) — для работы с JSON
-- **GTest** — для модульного тестирования
+- [GTest](https://github.com/google/googletest) — для модульного тестирования
 
 ### Зависимости Python
 
